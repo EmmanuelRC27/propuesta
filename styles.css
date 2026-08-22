@@ -1,43 +1,26 @@
-/* =====================================================
-   VARIABLES
-===================================================== */
-
 :root {
 
   --cream: #f8f1e8;
-
   --cream-light: #fffdf9;
-
   --beige: #eadaca;
-
   --beige-light: #f1e5d8;
 
   --brown-dark: #4a3728;
-
   --brown: #765b46;
-
   --brown-soft: #9b7b62;
-
   --brown-light: #c7aa91;
 
   --terracotta: #b8896b;
 
   --text: #3f3228;
-
   --muted: #7b6a5b;
 
   --line: rgba(74, 55, 40, 0.12);
 
   --shadow:
     0 30px 80px rgba(74, 55, 40, 0.12);
-
 }
 
-
-
-/* =====================================================
-   RESET
-===================================================== */
 
 * {
   box-sizing: border-box;
@@ -53,16 +36,16 @@ body {
 
   margin: 0;
 
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
   color: var(--text);
 
   font-family:
     "DM Sans",
     system-ui,
     sans-serif;
-
-  min-height: 100vh;
-
-  overflow-x: hidden;
 
   background:
 
@@ -105,9 +88,7 @@ button {
 
 
 
-/* =====================================================
-   FONDO DECORATIVO
-===================================================== */
+/* FONDO */
 
 .bg-orb {
 
@@ -162,18 +143,14 @@ button {
 
 
 
-/* =====================================================
-   ENCABEZADO
-===================================================== */
+/* ENCABEZADO */
 
 .site-header {
 
   position: fixed;
 
   top: 12px;
-
   left: 14px;
-
   right: 14px;
 
   z-index: 50;
@@ -229,9 +206,7 @@ button {
 
 
 
-/* =====================================================
-   SECCIONES
-===================================================== */
+/* SECCIONES */
 
 .section {
 
@@ -246,9 +221,7 @@ button {
 
 
 
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .hero {
 
@@ -273,9 +246,7 @@ button {
 
 
 
-/* =====================================================
-   TIPOGRAFÍA
-===================================================== */
+/* TIPOGRAFÍA */
 
 .eyebrow {
 
@@ -348,9 +319,7 @@ h1 span {
 
 
 
-/* =====================================================
-   CARRUSEL
-===================================================== */
+/* CARRUSEL */
 
 .memory-section {
 
@@ -445,16 +414,11 @@ h1 span {
   object-fit: cover;
 
   object-position: center center;
-
-  transform: scale(1);
-
 }
 
 
 
-/* =====================================================
-   INDICADORES
-===================================================== */
+/* PUNTOS */
 
 .carousel-dots {
 
@@ -504,9 +468,7 @@ h1 span {
 
 
 
-/* =====================================================
-   CARTA / MENSAJE
-===================================================== */
+/* MENSAJE */
 
 .love-note {
 
@@ -549,11 +511,9 @@ h1 span {
   position: absolute;
 
   width: 300px;
-
   height: 300px;
 
   right: -150px;
-
   top: -150px;
 
   border-radius: 50%;
@@ -573,11 +533,9 @@ h1 span {
   position: absolute;
 
   width: 250px;
-
   height: 250px;
 
   left: -130px;
-
   bottom: -130px;
 
   border-radius: 50%;
@@ -664,9 +622,7 @@ h1 span {
 
 
 
-/* =====================================================
-   SECCIÓN FINAL
-===================================================== */
+/* PREGUNTA */
 
 .question-section {
 
@@ -710,11 +666,9 @@ h1 span {
   position: absolute;
 
   width: 400px;
-
   height: 400px;
 
   right: -180px;
-
   bottom: -200px;
 
   border-radius: 50%;
@@ -734,11 +688,9 @@ h1 span {
   position: absolute;
 
   width: 350px;
-
   height: 350px;
 
   left: -180px;
-
   top: -190px;
 
   border-radius: 50%;
@@ -798,9 +750,7 @@ h1 span {
 
 
 
-/* =====================================================
-   BOTÓN FINAL
-===================================================== */
+/* BOTÓN */
 
 .question-button {
 
@@ -894,9 +844,7 @@ h1 span {
 
 
 
-/* =====================================================
-   RESPUESTA
-===================================================== */
+/* RESPUESTA */
 
 .answer-area {
 
@@ -992,9 +940,7 @@ h1 span {
 
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 .site-footer {
 
@@ -1010,9 +956,7 @@ h1 span {
 
 
 
-/* =====================================================
-   ANIMACIONES
-===================================================== */
+/* ANIMACIÓN */
 
 .reveal {
 
@@ -1050,9 +994,7 @@ h1 span {
 
 
 
-/* =====================================================
-   IPHONE / MÓVIL
-===================================================== */
+/* MÓVIL */
 
 @media (max-width: 700px) {
 
@@ -1108,12 +1050,8 @@ h1 span {
     font-size: 15px;
 
     line-height: 1.7;
-
-    max-width: 520px;
   }
 
-
-  /* CARRUSEL MÓVIL */
 
   .memory-section {
 
@@ -1147,11 +1085,6 @@ h1 span {
 
   .slide {
 
-    /*
-      Más alto para fotografías
-      verticales tomadas con iPhone.
-    */
-
     height: 500px;
   }
 
@@ -1167,8 +1100,6 @@ h1 span {
     object-position: center center;
   }
 
-
-  /* MENSAJE */
 
   .love-note {
 
@@ -1204,8 +1135,6 @@ h1 span {
     line-height: 1.75;
   }
 
-
-  /* PREGUNTA */
 
   .question-section {
 
@@ -1262,9 +1191,7 @@ h1 span {
 
 
 
-/* =====================================================
-   IPHONE 15 PRO MAX
-===================================================== */
+/* IPHONE 15 PRO MAX */
 
 @media (
   min-width: 390px
@@ -1296,9 +1223,7 @@ h1 span {
 
 
 
-/* =====================================================
-   MENOS MOVIMIENTO
-===================================================== */
+/* REDUCIR ANIMACIONES */
 
 @media (prefers-reduced-motion: reduce) {
 
