@@ -1,191 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#172033" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
+  <title>Un Día Especial</title>
 
-    <meta name="theme-color" content="#172033" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <title>Un Día Especial</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+<body>
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+  <!-- Fondo decorativo -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
 
-  <body>
-    <!-- Fondo -->
+  <!-- Encabezado fijo -->
+  <header class="site-header">
+    <a class="brand" href="#inicio">
+      <span>Un Día Especial</span>
+    </a>
+  </header>
 
-    <div class="background-glow glow-one"></div>
-    <div class="background-glow glow-two"></div>
 
-    <!-- Encabezado fijo -->
+  <main id="inicio">
 
-    <header class="site-header">
-      <div class="header-inner">
-        <a href="#inicio" class="site-title"> Un Día Especial </a>
+    <!-- INTRODUCCIÓN -->
+    <section class="hero section">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow reveal">
+          Tengo algo que decirte
+        </p>
+
+        <h1 class="reveal delay-1">
+          Hay personas que llegan a nuestra vida
+          <span>y la hacen más bonita.</span>
+        </h1>
+
+        <p class="hero-text reveal delay-2">
+          Y entre tantas personas que he conocido,
+          me alegra muchísimo haber coincidido contigo.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CARRUSEL -->
+    <section class="memory-section section" id="recuerdos">
+
+      <div class="section-heading">
+        <p class="eyebrow">Nuestros momentos</p>
+
+        <h2>
+          Algunos recuerdos que guardo con mucho cariño.
+        </h2>
+      </div>
+
+
+      <div class="carousel" aria-label="Carrusel de fotografías">
+
+        <div class="carousel-viewport">
+
+          <div class="carousel-track" id="carouselTrack">
+
+            <article class="slide">
+              <img
+                src="assets/photos/foto-1.jpeg"
+                alt="Un recuerdo especial"
+              />
+            </article>
+
+            <article class="slide">
+              <img
+                src="assets/photos/foto-2.jpeg"
+                alt="Un recuerdo especial"
+              />
+            </article>
+
+            <article class="slide">
+              <img
+                src="assets/photos/foto-3.jpeg"
+                alt="Un recuerdo especial"
+              />
+            </article>
+
+            <article class="slide">
+              <img
+                src="assets/photos/foto-4.jpeg"
+                alt="Un recuerdo especial"
+              />
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+
+    </section>
+
+
+    <!-- MENSAJE -->
+    <section class="love-note section">
+
+      <div class="love-note-card">
+
+        <div class="sparkle">✦</div>
+
+        <p class="eyebrow">
+          Quería decirte esto
+        </p>
+
+        <h2>
+          Soy afortunado de tenerte.
+        </h2>
+
+        <p>
+          No tengo dudas de que eres una mujer increíble. Me encanta esa forma
+          tuya de darle luz a los días de las personas que te rodean, muchas
+          veces sin siquiera darte cuenta.
+        </p>
+
+        <p>
+          Y siendo sincero, me encantaría que esa luz también siguiera
+          iluminando mis días durante muchísimo tiempo. Me haces muy feliz y,
+          poco a poco, he descubierto que compartir la vida contigo la hace
+          mucho más bonita.
+        </p>
+
+        <p>
+          Me gusta lo que somos, lo que hemos vivido y, sobre todo, la idea de
+          todo lo que todavía nos queda por vivir.
+        </p>
+
+        <div class="signature">
+          — Con mucho cariño.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PREGUNTA -->
+    <section class="question-section section" id="pregunta">
+
+      <div class="question-shell">
+
+        <div class="question-decoration">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <p class="eyebrow">
+          Hay algo que quiero preguntarte
+        </p>
+
+        <h2>
+          Quiero hacerte una pregunta.
+        </h2>
+
+        <p class="question-text">
+          Una pregunta sencilla, pero muy importante para mí.
+        </p>
 
         <button
-          class="music-button"
-          id="playMusicBtn"
-          aria-label="Reproducir música"
+          class="question-button"
+          id="questionButton"
         >
-          <span class="music-icon">♪</span>
+          <span>
+            Abrir
+          </span>
+
+          <small>
+            Tengo algo que decirte
+          </small>
         </button>
+
+
+        <div
+          class="answer-area"
+          id="answerArea"
+          aria-live="polite"
+        >
+
+          <div class="answer-line"></div>
+
+          <h3>
+            No sé qué nos depare el futuro,
+            pero sí sé que quiero descubrirlo contigo.
+          </h3>
+
+          <p>
+            Me encantas, me haces feliz y quiero seguir compartiendo muchos
+            momentos contigo.
+          </p>
+
+          <div class="final-question">
+            ¿Quieres ser mi novia?
+          </div>
+
+        </div>
+
       </div>
-    </header>
 
-    <main id="inicio">
-      <!-- =====================================
-         CARRUSEL
-    ====================================== -->
+    </section>
 
-      <section class="gallery-section">
-        <div class="gallery-intro">
-
-          <h1>
-            Algunos momentos<br />
-            que quiero recordar.
-          </h1>
-        </div>
-
-        <div class="carousel">
-          <div class="carousel-viewport">
-            <div class="carousel-track" id="carouselTrack">
-              <!-- FOTO 1 -->
-
-              <article class="slide">
-                <img
-                  src="assets/photos/Foto 1.jpeg"
-                  alt="Un recuerdo especial"
-                />
-              </article>
-
-              <!-- FOTO 2 -->
-
-              <article class="slide">
-                <img
-                  src="assets/photos/Foto 2.jpeg"
-                  alt="Un recuerdo especial"
-                />
-              </article>
-
-              <!-- FOTO 3 -->
-
-              <article class="slide">
-                <img
-                  src="assets/photos/Foto 3.jpeg"
-                  alt="Un recuerdo especial"
-                />
-              </article>
-
-              <!-- FOTO 4 -->
-
-              <article class="slide">
-                <img
-                  src="assets/photos/Foto 4.jpeg"
-                  alt="Un recuerdo especial"
-                />
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <!-- Indicadores -->
-
-        <div class="carousel-dots" id="carouselDots"></div>
-      </section>
-
-      <!-- =====================================
-         MENSAJE
-    ====================================== -->
-
-      <section class="letter-section">
-        <div class="letter-card">
-          <div class="letter-decoration"></div>
-
-          <h2>Soy afortunado de tenerte</h2>
-
-          <div class="letter-text">
-            <p>
-              No tengo dudas de que eres una mujer increíble. Me encanta
-              tu forma de ser, cómo tratas a las personas que quieres y como,
-              sin darte cuenta, logras darle un poquito de luz a los días de
-              quienes están a tu alrededor.
-            </p>
-
-            <p>
-              Y siendote sincero, me encantaría que esa luz también pudiera
-              acompañar mis días durante mucho tiempo.
-            </p>
-
-            <p>
-              Me haces muy feliz. Me gusta estar contigo, hablar contigo y
-              compartir cualquier cosa, incluso esos momentos simples que quizá
-              no parecen importantes, pero que se quedan en mi corazon, princesa.
-            </p>
-
-            <p>
-              Con el tiempo he descubierto que la vida contigo se siente más
-              bonita, más tranquila y más especial. Y creo que eso es algo que
-              vale la pena cuidar y apreciar.
-            </p>
-
-            <p>
-              Por eso me siento afortunado de haberte encontrado, de poder
-              conocerte cada día un poquito más y de tenerte hoy en mi vida.
-            </p>
-          </div>
-
-          <div class="letter-line"></div>
-
-          <p class="letter-closing">Con mucho cariño.</p>
-        </div>
-      </section>
-
-      <!-- =====================================
-         PREGUNTA FINAL
-    ====================================== -->
-
-      <section class="question-section">
-        <div class="question-card">
-          <div class="question-glow"></div>
+  </main>
 
 
-          <h2>
-            Me gustaría<br />
-            hacerte una pregunta.
-          </h2>
+  <footer class="site-footer">
+    <p>
+      Hecho especialmente para ti.
+    </p>
+  </footer>
 
-          <div class="question-line"></div>
-        </div>
-      </section>
-    </main>
 
-    <!-- Pie de página -->
+  <!-- Música -->
+  <audio id="bgMusic" loop preload="none">
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
 
-    <footer class="site-footer">
-      <div class="footer-line"></div>
 
-      <p>Un Día Especial</p>
-    </footer>
+  <script src="script.js"></script>
 
-    <!-- Música -->
-
-    <audio id="bgMusic" loop preload="none">
-      <source src="assets/music.mp3" type="audio/mpeg" />
-    </audio>
-
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
