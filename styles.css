@@ -1,33 +1,29 @@
-/* =========================================================
-   VARIABLES
-========================================================= */
-
 :root {
-  --background: #f4f8fc;
-  --background-dark: #172033;
+  --bg: #f4f8fc;
 
-  --surface: rgba(255, 255, 255, 0.82);
-  --surface-solid: #ffffff;
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-strong: #ffffff;
+
+  --ink: #172033;
+  --muted: #64748b;
 
   --primary: #2563eb;
-  --primary-light: #38bdf8;
+  --primary-2: #38bdf8;
 
-  --text: #172033;
-  --text-soft: #526176;
-  --text-light: #718096;
+  --soft: #e8f4fc;
 
-  --line: rgba(23, 32, 51, 0.10);
+  --line: rgba(23, 32, 51, 0.11);
 
   --shadow:
-    0 25px 70px rgba(23, 32, 51, 0.10);
+    0 30px 80px rgba(30, 64, 175, 0.12);
 
   --radius: 28px;
 }
 
 
-/* =========================================================
-   RESET
-========================================================= */
+/* =========================
+   BASE
+========================= */
 
 * {
   box-sizing: border-box;
@@ -42,26 +38,32 @@ body {
 
   background:
     radial-gradient(
-      circle at 10% 15%,
-      rgba(56, 189, 248, 0.13),
+      circle at 12% 10%,
+      rgba(56, 189, 248, 0.15),
       transparent 25%
     ),
     radial-gradient(
-      circle at 90% 40%,
-      rgba(37, 99, 235, 0.08),
+      circle at 88% 15%,
+      rgba(37, 99, 235, 0.11),
       transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      rgba(96, 165, 250, 0.08),
+      transparent 30%
     ),
     linear-gradient(
       180deg,
       #f8fbfe 0%,
-      #edf4fa 100%
+      #edf5fa 50%,
+      #f7fbfd 100%
     );
 
-  color: var(--text);
+  color: var(--ink);
 
   font-family:
-    "Montserrat",
-    Arial,
+    "DM Sans",
+    system-ui,
     sans-serif;
 
   min-height: 100vh;
@@ -69,226 +71,247 @@ body {
   overflow-x: hidden;
 }
 
-button,
-a {
-  font: inherit;
-}
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
+button {
+  font: inherit;
+}
 
-/* =========================================================
+
+/* =========================
    FONDO
-========================================================= */
+========================= */
 
-.background-glow {
+.bg-orb {
   position: fixed;
 
   border-radius: 50%;
 
-  pointer-events: none;
-
   filter: blur(70px);
 
-  z-index: -1;
+  opacity: 0.12;
 
-  opacity: 0.45;
+  pointer-events: none;
+
+  z-index: -2;
 }
 
-.glow-one {
-  width: 280px;
-  height: 280px;
+.orb-1 {
+  width: 260px;
+  height: 260px;
 
-  background: rgba(56, 189, 248, 0.16);
+  background: #38bdf8;
 
-  top: 12%;
-  left: -160px;
+  top: 8%;
+  left: -130px;
 }
 
-.glow-two {
-  width: 320px;
-  height: 320px;
+.orb-2 {
+  width: 300px;
+  height: 300px;
 
-  background: rgba(37, 99, 235, 0.11);
+  background: #2563eb;
 
-  right: -180px;
-  top: 48%;
+  right: -150px;
+  top: 38%;
+}
+
+.orb-3 {
+  width: 220px;
+  height: 220px;
+
+  background: #60a5fa;
+
+  left: 20%;
+  bottom: -120px;
 }
 
 
-/* =========================================================
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
 .site-header {
   position: fixed;
 
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 14px;
+  left: 16px;
+  right: 16px;
 
-  z-index: 100;
-
-  background:
-    rgba(23, 32, 51, 0.94);
-
-  border-bottom:
-    1px solid rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  padding-top: env(safe-area-inset-top);
-}
-
-.header-inner {
-  height: 64px;
-
-  width: min(
-    1120px,
-    calc(100% - 32px)
-  );
-
-  margin: 0 auto;
+  z-index: 50;
 
   display: flex;
 
-  align-items: center;
+  justify-content: center;
 
-  justify-content: space-between;
+  pointer-events: none;
 }
 
-.site-title {
-  color: #ffffff;
+.brand {
+  pointer-events: auto;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 23px;
+
+  background:
+    rgba(23, 32, 51, 0.88);
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.16);
 
   font-family:
     "Cormorant Garamond",
     Georgia,
     serif;
 
-  font-size: 25px;
+  font-size: 19px;
 
   font-weight: 600;
 
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
-.music-button {
-  width: 38px;
-  height: 38px;
 
-  border-radius: 50%;
+/* =========================
+   SECCIONES
+========================= */
 
-  border:
-    1px solid rgba(255, 255, 255, 0.18);
+.section {
+  width: min(
+    1080px,
+    calc(100% - 36px)
+  );
 
-  background:
-    rgba(255, 255, 255, 0.07);
+  margin: 0 auto;
+}
 
-  color: #ffffff;
 
-  cursor: pointer;
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 82vh;
 
   display: grid;
 
   place-items: center;
 
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.music-button:hover {
-  background:
-    rgba(255, 255, 255, 0.14);
-
-  transform: translateY(-1px);
-}
-
-.music-icon {
-  font-size: 17px;
-  line-height: 1;
-}
-
-
-/* =========================================================
-   SECCIONES
-========================================================= */
-
-.gallery-section,
-.letter-section,
-.question-section {
-  width: min(
-    1080px,
-    calc(100% - 32px)
-  );
-
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* =========================================================
-   GALERÍA
-========================================================= */
-
-.gallery-section {
-  padding-top: 94px;
-  padding-bottom: 70px;
-}
-
-.gallery-intro {
   text-align: center;
 
-  max-width: 720px;
-
-  margin: 0 auto 30px;
+  padding-top: 100px;
+  padding-bottom: 55px;
 }
 
-.section-label {
-  margin: 0 0 10px;
+.hero-copy {
+  max-width: 850px;
+}
 
-  color: #3b82b8;
 
-  font-size: 10px;
+/* =========================
+   TIPOGRAFÍA
+========================= */
 
-  font-weight: 600;
+.eyebrow {
+  margin: 0 0 14px;
+
+  color: #2563a8;
 
   text-transform: uppercase;
 
-  letter-spacing: 0.22em;
+  letter-spacing: 0.19em;
+
+  font-size: 10px;
+
+  font-weight: 700;
 }
 
-.gallery-intro h1 {
-  margin: 0;
-
-  color: var(--text);
-
+h1,
+h2,
+h3 {
   font-family:
     "Cormorant Garamond",
     Georgia,
     serif;
 
+  font-weight: 600;
+
+  margin: 0;
+}
+
+h1 {
   font-size:
-    clamp(2.5rem, 7vw, 4.6rem);
+    clamp(
+      3.1rem,
+      7vw,
+      6rem
+    );
 
   line-height: 0.98;
 
-  font-weight: 600;
+  letter-spacing: -0.035em;
+}
 
-  letter-spacing: -0.025em;
+h1 span {
+  display: block;
+
+  color: #2563eb;
+}
+
+.hero-text {
+  max-width: 650px;
+
+  margin: 25px auto 0;
+
+  color: var(--muted);
+
+  font-size: 17px;
+
+  line-height: 1.8;
 }
 
 
-/* =========================================================
+/* =========================
    CARRUSEL
-========================================================= */
+========================= */
+
+.memory-section {
+  padding: 50px 0 100px;
+}
+
+.section-heading {
+  max-width: 680px;
+
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  font-size:
+    clamp(
+      2.3rem,
+      5vw,
+      4rem
+    );
+
+  line-height: 1.02;
+}
 
 .carousel {
-  display: block;
   width: 100%;
 }
 
@@ -297,28 +320,23 @@ a {
 
   overflow: hidden;
 
-  border-radius: var(--radius);
+  border-radius: 30px;
 
-  box-shadow: var(--shadow);
-
-  /*
-    Fondo para que las partes que no ocupa
-    la fotografía se vean elegantes.
-  */
-
-  background:
-    linear-gradient(
-      135deg,
-      #dceaf4,
-      #eef5fa
-    );
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.13);
 }
 
 .carousel-track {
   display: flex;
 
   transition:
-    transform 1s cubic-bezier(.22,.61,.36,1);
+    transform 0.8s
+    cubic-bezier(
+      0.22,
+      0.61,
+      0.36,
+      1
+    );
 }
 
 .slide {
@@ -326,64 +344,35 @@ a {
 
   position: relative;
 
-  /*
-    ESTE ERA EL TAMAÑO ORIGINAL.
-    Lo mantenemos.
-  */
-
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
 
   overflow: hidden;
 
-  background:
-    linear-gradient(
-      135deg,
-      #dceaf4,
-      #eef5fa
-    );
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
+  background: #dbeafe;
 }
-
-
-/*
-  Aquí está el cambio importante.
-
-  "contain" evita que la fotografía
-  sea recortada o se vea demasiado cerca.
-*/
 
 .slide img {
   width: 100%;
   height: 100%;
 
-  display: block;
-
-  object-fit: contain;
+  object-fit: cover;
 
   object-position: center;
 
-  transform: none;
+  display: block;
 
-  transition:
-    opacity 0.8s ease;
+  transform: scale(1.01);
 }
 
 
-/* =========================================================
-   INDICADORES
-========================================================= */
+/* =========================
+   DOTS
+========================= */
 
 .carousel-dots {
   display: flex;
 
   justify-content: center;
-
-  align-items: center;
 
   gap: 7px;
 
@@ -394,298 +383,422 @@ a {
   width: 6px;
   height: 6px;
 
-  padding: 0;
-
   border: 0;
+
+  padding: 0;
 
   border-radius: 50%;
 
-  background: #b7c5d4;
+  background: #b8c9d8;
 
-  transition:
-    width 0.35s ease,
-    background 0.35s ease;
+  transition: 0.3s;
 }
 
 .carousel-dot.active {
   width: 22px;
 
-  border-radius: 20px;
+  border-radius: 999px;
 
   background:
     linear-gradient(
       90deg,
       var(--primary),
-      var(--primary-light)
+      var(--primary-2)
     );
 }
 
 
-/* =========================================================
-   CARTA
-========================================================= */
+/* =========================
+   MENSAJE
+========================= */
 
-.letter-section {
-  padding-top: 10px;
-  padding-bottom: 80px;
+.love-note {
+  padding: 25px 0 100px;
 }
 
-.letter-card {
+.love-note-card {
   position: relative;
 
   overflow: hidden;
 
-  padding:
-    clamp(35px, 7vw, 70px);
+  padding: 55px;
 
-  border-radius: 30px;
+  border-radius: 32px;
 
   background:
-    rgba(255, 255, 255, 0.82);
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(239, 248, 255, 0.9)
+    );
 
-  border:
-    1px solid rgba(23, 32, 51, 0.09);
+  border: 1px solid
+    rgba(37, 99, 235, 0.09);
 
   box-shadow:
-    0 30px 80px rgba(23, 32, 51, 0.08);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+    0 25px 70px
+      rgba(30, 64, 175, 0.09);
 }
 
-.letter-card::before {
+.love-note-card::before {
   content: "";
 
   position: absolute;
 
-  width: 240px;
-  height: 240px;
-
-  border-radius: 50%;
+  width: 280px;
+  height: 280px;
 
   right: -130px;
   top: -130px;
 
-  background:
-    rgba(56, 189, 248, 0.12);
+  border-radius: 50%;
 
-  filter: blur(30px);
+  background: #38bdf8;
+
+  filter: blur(70px);
+
+  opacity: 0.13;
 }
 
-.letter-card::after {
+.love-note-card::after {
   content: "";
 
   position: absolute;
 
-  width: 200px;
-  height: 200px;
-
-  border-radius: 50%;
+  width: 230px;
+  height: 230px;
 
   left: -120px;
   bottom: -120px;
 
-  background:
-    rgba(37, 99, 235, 0.07);
+  border-radius: 50%;
 
-  filter: blur(30px);
+  background: #2563eb;
+
+  filter: blur(70px);
+
+  opacity: 0.08;
 }
 
-.letter-decoration {
-  width: 42px;
-  height: 2px;
+.sparkle {
+  position: relative;
+  z-index: 1;
 
-  margin-bottom: 28px;
+  color: #2563eb;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--primary),
-      var(--primary-light)
-    );
+  font-size: 24px;
+
+  margin-bottom: 10px;
 }
 
-.letter-card h2 {
+.love-note-card .eyebrow,
+.love-note-card h2,
+.love-note-card p,
+.signature {
   position: relative;
 
-  margin: 0;
+  z-index: 1;
+}
 
-  max-width: 800px;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    serif;
-
+.love-note-card h2 {
   font-size:
-    clamp(2.5rem, 6vw, 4.5rem);
+    clamp(
+      2.6rem,
+      5vw,
+      4.3rem
+    );
 
-  line-height: 0.98;
-
-  font-weight: 600;
-
-  letter-spacing: -0.025em;
+  line-height: 1;
 }
 
-.letter-text {
-  position: relative;
-
+.love-note-card > p:not(.eyebrow) {
   max-width: 760px;
 
-  margin-top: 28px;
+  color: var(--muted);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  margin: 20px 0;
 }
 
-.letter-text p {
-  margin: 0 0 18px;
-
-  color: var(--text-soft);
-
-  font-size: 15px;
-
-  line-height: 1.9;
-
-  font-weight: 400;
-}
-
-.letter-text p:last-child {
-  margin-bottom: 0;
-}
-
-.letter-line {
-  width: 100%;
-
-  height: 1px;
-
-  margin-top: 34px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--line),
-      transparent
-    );
-}
-
-.letter-closing {
-  margin: 18px 0 0;
-
-  color: #63748a;
+.signature {
+  margin-top: 26px;
 
   font-family:
     "Cormorant Garamond",
     Georgia,
     serif;
 
-  font-size: 20px;
+  font-size: 22px;
 
-  font-style: italic;
+  color: #315b91;
 }
 
 
-/* =========================================================
+/* =========================
    PREGUNTA
-========================================================= */
+========================= */
 
 .question-section {
-  padding-top: 0;
-  padding-bottom: 80px;
+  padding: 10px 0 100px;
 }
 
-.question-card {
+.question-shell {
   position: relative;
 
   overflow: hidden;
 
-  min-height: 430px;
-
-  padding: 60px 30px;
-
-  border-radius: 34px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  align-items: center;
-
   text-align: center;
 
-  color: #ffffff;
+  padding: 70px 25px;
+
+  border-radius: 36px;
 
   background:
     linear-gradient(
       145deg,
-      #172033 0%,
-      #1d2b45 55%,
-      #203d62 100%
+      #172033,
+      #203454
     );
 
+  color: white;
+
   box-shadow:
-    0 35px 90px rgba(23, 32, 51, 0.20);
+    0 35px 90px
+      rgba(15, 23, 42, 0.25);
 }
 
-.question-glow {
-  position: absolute;
-
-  width: 330px;
-  height: 330px;
-
-  border-radius: 50%;
-
-  right: -120px;
-  bottom: -160px;
-
-  background:
-    rgba(56, 189, 248, 0.18);
-
-  filter: blur(15px);
-
-  pointer-events: none;
-}
-
-.question-card::before {
+.question-shell::before {
   content: "";
 
   position: absolute;
 
-  width: 220px;
-  height: 220px;
+  width: 380px;
+  height: 380px;
+
+  right: -160px;
+  bottom: -180px;
 
   border-radius: 50%;
 
-  left: -130px;
-  top: -130px;
+  background: #38bdf8;
+
+  filter: blur(70px);
+
+  opacity: 0.13;
+}
+
+.question-shell::after {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  left: -150px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  filter: blur(70px);
+
+  opacity: 0.15;
+}
+
+.question-shell .eyebrow {
+  position: relative;
+
+  z-index: 1;
+
+  color: #9dd9f7;
+}
+
+.question-shell h2 {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 750px;
+
+  margin: 0 auto;
+
+  font-size:
+    clamp(
+      2.7rem,
+      6vw,
+      5rem
+    );
+
+  line-height: 0.98;
+}
+
+.question-text {
+  position: relative;
+
+  z-index: 1;
+
+  color: #c8d5e5;
+
+  font-size: 16px;
+
+  margin: 18px 0 0;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+.question-button {
+  position: relative;
+
+  z-index: 1;
+
+  margin-top: 32px;
+
+  min-width:
+    min(
+      420px,
+      90%
+    );
+
+  padding: 20px 28px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.14);
+
+  border-radius: 999px;
+
+  color: white;
+
+  cursor: pointer;
 
   background:
-    rgba(37, 99, 235, 0.20);
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #38bdf8
+    );
 
-  filter: blur(20px);
+  box-shadow:
+    0 20px 50px
+      rgba(37, 99, 235, 0.3);
+
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
 }
 
-.question-label {
-  position: relative;
+.question-button:hover {
+  transform:
+    translateY(-3px);
 
-  margin: 0 0 20px;
+  box-shadow:
+    0 25px 60px
+      rgba(37, 99, 235, 0.38);
+}
 
-  color: #9cc9e8;
+.question-button span {
+  display: block;
 
-  font-size: 10px;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.22em;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-weight: 600;
+
+  font-size:
+    clamp(
+      2rem,
+      5vw,
+      3.2rem
+    );
+
+  line-height: 1;
 }
 
-.question-card h2 {
+.question-button small {
+  display: block;
+
+  margin-top: 7px;
+
+  opacity: 0.8;
+
+  font-size: 11px;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================
+   RESPUESTA
+========================= */
+
+.answer-area {
   position: relative;
 
-  margin: 0;
+  z-index: 1;
 
-  max-width: 760px;
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.8s ease,
+    opacity 0.5s ease;
+}
+
+.answer-area.open {
+  max-height: 600px;
+
+  opacity: 1;
+}
+
+.answer-line {
+  width: 50px;
+  height: 1px;
+
+  margin: 38px auto 28px;
+
+  background:
+    rgba(255, 255, 255, 0.3);
+}
+
+.answer-area h3 {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  font-size:
+    clamp(
+      2rem,
+      5vw,
+      3.5rem
+    );
+
+  line-height: 1.05;
+}
+
+.answer-area p {
+  max-width: 600px;
+
+  margin: 16px auto;
+
+  color: #c8d5e5;
+
+  line-height: 1.7;
+}
+
+.final-question {
+  margin-top: 30px;
 
   font-family:
     "Cormorant Garamond",
@@ -693,291 +806,218 @@ a {
     serif;
 
   font-size:
-    clamp(3rem, 8vw, 5.5rem);
-
-  line-height: 0.95;
+    clamp(
+      2.8rem,
+      7vw,
+      5rem
+    );
 
   font-weight: 600;
 
-  letter-spacing: -0.025em;
-}
+  color: #ffffff;
 
-.question-line {
-  position: relative;
-
-  width: 45px;
-
-  height: 1px;
-
-  margin: 28px 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--primary-light),
-      #ffffff
-    );
-}
-
-.question-subtitle {
-  position: relative;
-
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.64);
-
-  font-size: 13px;
-
-  line-height: 1.7;
+  text-shadow:
+    0 8px 30px
+      rgba(0, 0, 0, 0.2);
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 .site-footer {
-  width: min(
-    1080px,
-    calc(100% - 32px)
-  );
-
-  margin: 0 auto;
-
-  padding-bottom: 35px;
+  padding:
+    0 20px 35px;
 
   text-align: center;
 
-  color: #7a899b;
+  color: #7c8da1;
 
-  font-size: 10px;
-
-  letter-spacing: 0.08em;
-}
-
-.footer-line {
-  width: 35px;
-
-  height: 1px;
-
-  margin: 0 auto 18px;
-
-  background: #b6c4d3;
-}
-
-.site-footer p {
-  margin: 0;
+  font-size: 11px;
 }
 
 
-/* =========================================================
-   ANIMACIÓN
-========================================================= */
+/* =========================
+   ANIMACIONES
+========================= */
 
-.gallery-intro,
-.carousel,
-.letter-card,
-.question-card {
+.reveal {
+  opacity: 0;
+
+  transform:
+    translateY(18px);
+
   animation:
-    pageAppear 0.8s ease both;
+    reveal 0.8s ease forwards;
 }
 
-@keyframes pageAppear {
+.delay-1 {
+  animation-delay: 0.08s;
+}
 
-  from {
-    opacity: 0;
+.delay-2 {
+  animation-delay: 0.16s;
+}
 
-    transform:
-      translateY(18px);
-  }
-
+@keyframes reveal {
   to {
     opacity: 1;
 
-    transform:
-      translateY(0);
+    transform: none;
   }
-
 }
 
 
-/* =========================================================
+/* =========================
    MÓVIL
-========================================================= */
+========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-  .header-inner {
+  .site-header {
+    top: 10px;
+
+    left: 12px;
+    right: 12px;
+  }
+
+  .brand {
+    padding:
+      9px 20px;
+
+    font-size: 18px;
+  }
+
+  .section {
     width:
       calc(100% - 28px);
-
-    height: 58px;
   }
 
-  .site-title {
-    font-size: 23px;
+  .hero {
+    min-height: 72vh;
+
+    padding-top: 85px;
+
+    padding-bottom: 35px;
   }
 
-  .music-button {
-    width: 36px;
-    height: 36px;
+  h1 {
+    font-size:
+      clamp(
+        2.9rem,
+        13vw,
+        4.3rem
+      );
   }
 
-  .gallery-section {
+  .hero-text {
+    font-size: 15px;
 
-    width:
-      calc(100% - 24px);
-
-    padding-top: 74px;
-
-    padding-bottom: 55px;
+    line-height: 1.7;
   }
 
-  .gallery-intro {
-    margin-bottom: 22px;
+  .memory-section {
+    padding-top: 35px;
+
+    padding-bottom: 75px;
   }
 
-  .gallery-intro h1 {
-    font-size: 39px;
-
-    line-height: 0.98;
+  .section-heading {
+    margin-bottom: 20px;
   }
 
-  /*
-    IMPORTANTE:
-    Mantenemos el mismo tamaño
-    del carrusel.
+  .section-heading h2 {
+    font-size:
+      clamp(
+        2.25rem,
+        10vw,
+        3.4rem
+      );
+  }
 
-    No cambiamos a 4/5.
-  */
+  .carousel-viewport {
+    border-radius: 24px;
+  }
 
   .slide {
     aspect-ratio: 16 / 10;
   }
 
-  .carousel-viewport {
-    border-radius: 22px;
+  .slide img {
+    transform: scale(1.01);
   }
 
-  .carousel-dots {
-    margin-top: 13px;
+  .love-note {
+    padding-bottom: 75px;
   }
 
-  .letter-section {
-
-    width:
-      calc(100% - 24px);
-
-    padding-top: 0;
-
-    padding-bottom: 55px;
+  .love-note-card {
+    padding:
+      35px 24px;
+    border-radius: 28px;
   }
 
-  .letter-card {
-    padding: 34px 25px;
-
-    border-radius: 25px;
+  .love-note-card h2 {
+    font-size:
+      clamp(
+        2.5rem,
+        11vw,
+        3.7rem
+      );
   }
 
-  .letter-decoration {
-    margin-bottom: 22px;
-  }
+  .love-note-card > p:not(.eyebrow) {
+    font-size: 15px;
 
-  .letter-card h2 {
-    font-size: 38px;
-
-    line-height: 0.98;
-  }
-
-  .letter-text {
-    margin-top: 22px;
-  }
-
-  .letter-text p {
-    font-size: 14px;
-
-    line-height: 1.8;
-
-    margin-bottom: 16px;
-  }
-
-  .letter-line {
-    margin-top: 28px;
+    line-height: 1.75;
   }
 
   .question-section {
-
-    width:
-      calc(100% - 24px);
-
-    padding-bottom: 55px;
+    padding-bottom: 75px;
   }
 
-  .question-card {
-    min-height: 390px;
+  .question-shell {
+    padding:
+      55px 18px;
 
-    padding: 50px 22px;
-
-    border-radius: 26px;
+    border-radius: 30px;
   }
 
-  .question-card h2 {
-    font-size: 44px;
-
-    line-height: 0.94;
+  .question-shell h2 {
+    font-size:
+      clamp(
+        2.6rem,
+        12vw,
+        4rem
+      );
   }
 
-  .question-label {
-    font-size: 9px;
+  .question-button {
+    min-width: 100%;
 
-    margin-bottom: 18px;
+    padding:
+      19px 15px;
   }
 
-  .question-subtitle {
-    font-size: 12px;
-
-    max-width: 230px;
+  .question-button span {
+    font-size: 2.5rem;
   }
 
-  .site-footer {
-
-    width:
-      calc(100% - 24px);
-
-    padding-bottom: 28px;
+  .final-question {
+    font-size:
+      clamp(
+        2.7rem,
+        12vw,
+        4rem
+      );
   }
-
 }
 
 
-/* =========================================================
-   IPHONE 15 PRO MAX
-========================================================= */
-
-@media (max-width: 430px) {
-
-  .gallery-section {
-    padding-top: 72px;
-  }
-
-  .gallery-intro h1 {
-    font-size: 37px;
-  }
-
-  .letter-card h2 {
-    font-size: 37px;
-  }
-
-  .question-card h2 {
-    font-size: 43px;
-  }
-
-}
-
-
-/* =========================================================
-   REDUCIR MOVIMIENTO
-========================================================= */
+/* =========================
+   REDUCIR ANIMACIONES
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -989,7 +1029,7 @@ a {
   *::before,
   *::after {
     animation: none !important;
+
     transition: none !important;
   }
-
 }
