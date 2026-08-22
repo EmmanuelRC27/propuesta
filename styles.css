@@ -1,0 +1,995 @@
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --background: #f4f8fc;
+  --background-dark: #172033;
+
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-solid: #ffffff;
+
+  --primary: #2563eb;
+  --primary-light: #38bdf8;
+
+  --text: #172033;
+  --text-soft: #526176;
+  --text-light: #718096;
+
+  --line: rgba(23, 32, 51, 0.10);
+
+  --shadow:
+    0 25px 70px rgba(23, 32, 51, 0.10);
+
+  --radius: 28px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(56, 189, 248, 0.13),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 40%,
+      rgba(37, 99, 235, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #f8fbfe 0%,
+      #edf4fa 100%
+    );
+
+  color: var(--text);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   FONDO
+========================================================= */
+
+.background-glow {
+  position: fixed;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(70px);
+
+  z-index: -1;
+
+  opacity: 0.45;
+}
+
+.glow-one {
+  width: 280px;
+  height: 280px;
+
+  background: rgba(56, 189, 248, 0.16);
+
+  top: 12%;
+  left: -160px;
+}
+
+.glow-two {
+  width: 320px;
+  height: 320px;
+
+  background: rgba(37, 99, 235, 0.11);
+
+  right: -180px;
+  top: 48%;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 100;
+
+  background:
+    rgba(23, 32, 51, 0.94);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  padding-top: env(safe-area-inset-top);
+}
+
+.header-inner {
+  height: 64px;
+
+  width: min(
+    1120px,
+    calc(100% - 32px)
+  );
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.site-title {
+  color: #ffffff;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 25px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.01em;
+}
+
+.music-button {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  display: grid;
+
+  place-items: center;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.music-button:hover {
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  transform: translateY(-1px);
+}
+
+.music-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.gallery-section,
+.letter-section,
+.question-section {
+  width: min(
+    1080px,
+    calc(100% - 32px)
+  );
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.gallery-section {
+  padding-top: 94px;
+  padding-bottom: 70px;
+}
+
+.gallery-intro {
+  text-align: center;
+
+  max-width: 720px;
+
+  margin: 0 auto 30px;
+}
+
+.section-label {
+  margin: 0 0 10px;
+
+  color: #3b82b8;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.22em;
+}
+
+.gallery-intro h1 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2.5rem, 7vw, 4.6rem);
+
+  line-height: 0.98;
+
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   CARRUSEL
+========================================================= */
+
+.carousel {
+  display: block;
+  width: 100%;
+}
+
+.carousel-viewport {
+  width: 100%;
+
+  overflow: hidden;
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  /*
+    Fondo para que las partes que no ocupa
+    la fotografía se vean elegantes.
+  */
+
+  background:
+    linear-gradient(
+      135deg,
+      #dceaf4,
+      #eef5fa
+    );
+}
+
+.carousel-track {
+  display: flex;
+
+  transition:
+    transform 1s cubic-bezier(.22,.61,.36,1);
+}
+
+.slide {
+  min-width: 100%;
+
+  position: relative;
+
+  /*
+    ESTE ERA EL TAMAÑO ORIGINAL.
+    Lo mantenemos.
+  */
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dceaf4,
+      #eef5fa
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/*
+  Aquí está el cambio importante.
+
+  "contain" evita que la fotografía
+  sea recortada o se vea demasiado cerca.
+*/
+
+.slide img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  transform: none;
+
+  transition:
+    opacity 0.8s ease;
+}
+
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.carousel-dots {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 16px;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #b7c5d4;
+
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
+}
+
+.carousel-dot.active {
+  width: 22px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary),
+      var(--primary-light)
+    );
+}
+
+
+/* =========================================================
+   CARTA
+========================================================= */
+
+.letter-section {
+  padding-top: 10px;
+  padding-bottom: 80px;
+}
+
+.letter-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    clamp(35px, 7vw, 70px);
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  border:
+    1px solid rgba(23, 32, 51, 0.09);
+
+  box-shadow:
+    0 30px 80px rgba(23, 32, 51, 0.08);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.letter-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  border-radius: 50%;
+
+  right: -130px;
+  top: -130px;
+
+  background:
+    rgba(56, 189, 248, 0.12);
+
+  filter: blur(30px);
+}
+
+.letter-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+
+  left: -120px;
+  bottom: -120px;
+
+  background:
+    rgba(37, 99, 235, 0.07);
+
+  filter: blur(30px);
+}
+
+.letter-decoration {
+  width: 42px;
+  height: 2px;
+
+  margin-bottom: 28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary),
+      var(--primary-light)
+    );
+}
+
+.letter-card h2 {
+  position: relative;
+
+  margin: 0;
+
+  max-width: 800px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2.5rem, 6vw, 4.5rem);
+
+  line-height: 0.98;
+
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+}
+
+.letter-text {
+  position: relative;
+
+  max-width: 760px;
+
+  margin-top: 28px;
+}
+
+.letter-text p {
+  margin: 0 0 18px;
+
+  color: var(--text-soft);
+
+  font-size: 15px;
+
+  line-height: 1.9;
+
+  font-weight: 400;
+}
+
+.letter-text p:last-child {
+  margin-bottom: 0;
+}
+
+.letter-line {
+  width: 100%;
+
+  height: 1px;
+
+  margin-top: 34px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--line),
+      transparent
+    );
+}
+
+.letter-closing {
+  margin: 18px 0 0;
+
+  color: #63748a;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   PREGUNTA
+========================================================= */
+
+.question-section {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+.question-card {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 430px;
+
+  padding: 60px 30px;
+
+  border-radius: 34px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #172033 0%,
+      #1d2b45 55%,
+      #203d62 100%
+    );
+
+  box-shadow:
+    0 35px 90px rgba(23, 32, 51, 0.20);
+}
+
+.question-glow {
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  border-radius: 50%;
+
+  right: -120px;
+  bottom: -160px;
+
+  background:
+    rgba(56, 189, 248, 0.18);
+
+  filter: blur(15px);
+
+  pointer-events: none;
+}
+
+.question-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  left: -130px;
+  top: -130px;
+
+  background:
+    rgba(37, 99, 235, 0.20);
+
+  filter: blur(20px);
+}
+
+.question-label {
+  position: relative;
+
+  margin: 0 0 20px;
+
+  color: #9cc9e8;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.22em;
+
+  font-weight: 600;
+}
+
+.question-card h2 {
+  position: relative;
+
+  margin: 0;
+
+  max-width: 760px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(3rem, 8vw, 5.5rem);
+
+  line-height: 0.95;
+
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+}
+
+.question-line {
+  position: relative;
+
+  width: 45px;
+
+  height: 1px;
+
+  margin: 28px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary-light),
+      #ffffff
+    );
+}
+
+.question-subtitle {
+  position: relative;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+  width: min(
+    1080px,
+    calc(100% - 32px)
+  );
+
+  margin: 0 auto;
+
+  padding-bottom: 35px;
+
+  text-align: center;
+
+  color: #7a899b;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+}
+
+.footer-line {
+  width: 35px;
+
+  height: 1px;
+
+  margin: 0 auto 18px;
+
+  background: #b6c4d3;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
+
+.gallery-intro,
+.carousel,
+.letter-card,
+.question-card {
+  animation:
+    pageAppear 0.8s ease both;
+}
+
+@keyframes pageAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .header-inner {
+    width:
+      calc(100% - 28px);
+
+    height: 58px;
+  }
+
+  .site-title {
+    font-size: 23px;
+  }
+
+  .music-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .gallery-section {
+
+    width:
+      calc(100% - 24px);
+
+    padding-top: 74px;
+
+    padding-bottom: 55px;
+  }
+
+  .gallery-intro {
+    margin-bottom: 22px;
+  }
+
+  .gallery-intro h1 {
+    font-size: 39px;
+
+    line-height: 0.98;
+  }
+
+  /*
+    IMPORTANTE:
+    Mantenemos el mismo tamaño
+    del carrusel.
+
+    No cambiamos a 4/5.
+  */
+
+  .slide {
+    aspect-ratio: 16 / 10;
+  }
+
+  .carousel-viewport {
+    border-radius: 22px;
+  }
+
+  .carousel-dots {
+    margin-top: 13px;
+  }
+
+  .letter-section {
+
+    width:
+      calc(100% - 24px);
+
+    padding-top: 0;
+
+    padding-bottom: 55px;
+  }
+
+  .letter-card {
+    padding: 34px 25px;
+
+    border-radius: 25px;
+  }
+
+  .letter-decoration {
+    margin-bottom: 22px;
+  }
+
+  .letter-card h2 {
+    font-size: 38px;
+
+    line-height: 0.98;
+  }
+
+  .letter-text {
+    margin-top: 22px;
+  }
+
+  .letter-text p {
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 16px;
+  }
+
+  .letter-line {
+    margin-top: 28px;
+  }
+
+  .question-section {
+
+    width:
+      calc(100% - 24px);
+
+    padding-bottom: 55px;
+  }
+
+  .question-card {
+    min-height: 390px;
+
+    padding: 50px 22px;
+
+    border-radius: 26px;
+  }
+
+  .question-card h2 {
+    font-size: 44px;
+
+    line-height: 0.94;
+  }
+
+  .question-label {
+    font-size: 9px;
+
+    margin-bottom: 18px;
+  }
+
+  .question-subtitle {
+    font-size: 12px;
+
+    max-width: 230px;
+  }
+
+  .site-footer {
+
+    width:
+      calc(100% - 24px);
+
+    padding-bottom: 28px;
+  }
+
+}
+
+
+/* =========================================================
+   IPHONE 15 PRO MAX
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .gallery-section {
+    padding-top: 72px;
+  }
+
+  .gallery-intro h1 {
+    font-size: 37px;
+  }
+
+  .letter-card h2 {
+    font-size: 37px;
+  }
+
+  .question-card h2 {
+    font-size: 43px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+}

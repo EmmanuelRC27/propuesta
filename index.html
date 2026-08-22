@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <meta name="theme-color" content="#172033" />
+
+    <title>Un Día Especial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Fondo -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- Encabezado fijo -->
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="#inicio" class="site-title"> Un Día Especial </a>
+
+        <button
+          class="music-button"
+          id="playMusicBtn"
+          aria-label="Reproducir música"
+        >
+          <span class="music-icon">♪</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <!-- =====================================
+         CARRUSEL
+    ====================================== -->
+
+      <section class="gallery-section">
+        <div class="gallery-intro">
+          <p class="section-label">Para ti</p>
+
+          <h1>
+            Algunos momentos<br />
+            que quiero recordar.
+          </h1>
+        </div>
+
+        <div class="carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack">
+              <!-- FOTO 1 -->
+
+              <article class="slide">
+                <img
+                  src="assets/photos/Foto 1.jpeg"
+                  alt="Un recuerdo especial"
+                />
+              </article>
+
+              <!-- FOTO 2 -->
+
+              <article class="slide">
+                <img
+                  src="assets/photos/Foto 2.jpeg"
+                  alt="Un recuerdo especial"
+                />
+              </article>
+
+              <!-- FOTO 3 -->
+
+              <article class="slide">
+                <img
+                  src="assets/photos/Foto 3.jpeg"
+                  alt="Un recuerdo especial"
+                />
+              </article>
+
+              <!-- FOTO 4 -->
+
+              <article class="slide">
+                <img
+                  src="assets/photos/Foto 4.jpeg"
+                  alt="Un recuerdo especial"
+                />
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicadores -->
+
+        <div class="carousel-dots" id="carouselDots"></div>
+      </section>
+
+      <!-- =====================================
+         MENSAJE
+    ====================================== -->
+
+      <section class="letter-section">
+        <div class="letter-card">
+          <div class="letter-decoration"></div>
+
+          <h2>Soy afortunado de tenerte</h2>
+
+          <div class="letter-text">
+            <p>
+              No tengo dudas de que eres una mujer increíble. Me encanta la
+              forma en que eres, cómo tratas a las personas que quieres y cómo,
+              sin darte cuenta, logras darle un poquito de luz a los días de
+              quienes están a tu alrededor.
+            </p>
+
+            <p>
+              Y siendo sincero, me encantaría que esa luz también pudiera
+              acompañar mis días durante mucho tiempo.
+            </p>
+
+            <p>
+              Me haces muy feliz. Me gusta estar contigo, hablar contigo y
+              compartir cualquier cosa, incluso esos momentos simples que quizá
+              no parecen importantes, pero que conmigo se quedan.
+            </p>
+
+            <p>
+              Con el tiempo he descubierto que la vida contigo se siente más
+              bonita, más tranquila y más especial. Y creo que eso es algo que
+              vale la pena cuidar.
+            </p>
+
+            <p>
+              Por eso me siento afortunado de haberte encontrado, de poder
+              conocerte cada día un poquito más y de tenerte hoy en mi vida.
+            </p>
+          </div>
+
+          <div class="letter-line"></div>
+
+          <p class="letter-closing">Con mucho cariño.</p>
+        </div>
+      </section>
+
+      <!-- =====================================
+         PREGUNTA FINAL
+    ====================================== -->
+
+      <section class="question-section">
+        <div class="question-card">
+          <div class="question-glow"></div>
+
+          <p class="question-label">Hay algo más que quiero decirte</p>
+
+          <h2>
+            Me gustaría<br />
+            hacerte una pregunta.
+          </h2>
+
+          <div class="question-line"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+
+    <footer class="site-footer">
+      <div class="footer-line"></div>
+
+      <p>Un Día Especial</p>
+    </footer>
+
+    <!-- Música -->
+
+    <audio id="bgMusic" loop preload="none">
+      <source src="assets/music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
