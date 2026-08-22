@@ -1,167 +1,255 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* =====================================================
+   CARRUSEL AUTOMÁTICO
+===================================================== */
 
-  /* =====================================================
-     CARRUSEL
-  ===================================================== */
+const carouselTrack =
+  document.getElementById("carouselTrack");
 
-  const track =
-    document.getElementById("carouselTrack");
+const carouselDots =
+  document.getElementById("carouselDots");
 
-  const slides =
-    document.querySelectorAll(".slide");
+const slides =
+  document.querySelectorAll(".slide");
 
-  const dotsContainer =
-    document.getElementById("carouselDots");
+let currentSlide = 0;
 
-
-  let currentIndex = 0;
-
-
-  /* =====================================================
-     INDICADORES
-  ===================================================== */
-
-  slides.forEach((_, index) => {
-
-    const dot =
-      document.createElement("span");
-
-    dot.classList.add(
-      "carousel-dot"
-    );
+let autoPlay;
 
 
-    if (index === 0) {
 
-      dot.classList.add(
-        "active"
-      );
+/* =====================================================
+   CREAR LOS PUNTOS
+===================================================== */
 
-    }
+slides.forEach((_, index) => {
 
+  const dot =
+    document.createElement("button");
 
-    dotsContainer.appendChild(dot);
+  dot.classList.add(
+    "carousel-dot"
+  );
 
-  });
-
-
-  const dots =
-    document.querySelectorAll(
-      ".carousel-dot"
-    );
-
-
-  /* =====================================================
-     CAMBIO DE FOTO
-  ===================================================== */
-
-  function changeSlide() {
-
-    currentIndex++;
-
-
-    if (
-      currentIndex >=
-      slides.length
-    ) {
-
-      currentIndex = 0;
-
-    }
-
-
-    track.style.transform =
-      `translateX(-${currentIndex * 100}%)`;
-
-
-    dots.forEach(
-      (dot, index) => {
-
-        dot.classList.toggle(
-          "active",
-          index === currentIndex
-        );
-
-      }
-    );
-
-  }
-
-
-  /*
-    Cambia automáticamente
-    cada 4.5 segundos.
-  */
-
-  setInterval(
-    changeSlide,
-    4500
+  dot.setAttribute(
+    "aria-label",
+    `Ir a la fotografía ${index + 1}`
   );
 
 
-  /* =====================================================
-     MÚSICA
-  ===================================================== */
+  dot.addEventListener(
+    "click",
+    () => {
 
-  const musicButton =
-    document.getElementById(
-      "playMusicBtn"
-    );
+      goToSlide(index);
 
-  const music =
-    document.getElementById(
-      "bgMusic"
-    );
+      restartAutoPlay();
+
+    }
+  );
+
+
+  carouselDots.appendChild(dot);
+
+});
+
+
+const dots =
+  document.querySelectorAll(
+    ".carousel-dot"
+  );
+
+
+
+/* =====================================================
+   CAMBIAR FOTO
+===================================================== */
+
+function goToSlide(index) {
+
+  currentSlide = index;
+
+
+  carouselTrack.style.transform =
+    `translateX(-${currentSlide * 100}%)`;
+
+
+  dots.forEach(
+    (dot, i) => {
+
+      dot.classList.toggle(
+        "active",
+        i === currentSlide
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   SIGUIENTE FOTO
+===================================================== */
+
+function nextSlide() {
+
+  currentSlide++;
 
 
   if (
-    musicButton &&
-    music
+    currentSlide >= slides.length
   ) {
 
-    let playing = false;
-
-
-    musicButton.addEventListener(
-      "click",
-      () => {
-
-
-        if (!playing) {
-
-          music
-            .play()
-            .then(() => {
-
-              playing = true;
-
-              musicButton.innerHTML =
-                '<span class="music-icon">❚❚</span>';
-
-            })
-            .catch(() => {
-
-              console.log(
-                "El navegador bloqueó la reproducción."
-              );
-
-            });
-
-
-        } else {
-
-          music.pause();
-
-          playing = false;
-
-          musicButton.innerHTML =
-            '<span class="music-icon">♪</span>';
-
-        }
-
-      }
-    );
+    currentSlide = 0;
 
   }
 
-});
+
+  goToSlide(currentSlide);
+
+}
+
+
+
+/* =====================================================
+   REPRODUCCIÓN AUTOMÁTICA
+===================================================== */
+
+function startAutoPlay() {
+
+  autoPlay =
+    setInterval(
+      nextSlide,
+      4500
+    );
+
+}
+
+
+function restartAutoPlay() {
+
+  clearInterval(autoPlay);
+
+  startAutoPlay();
+
+}
+
+
+
+/* =====================================================
+   INICIAR CARRUSEL
+===================================================== */
+
+goToSlide(0);
+
+startAutoPlay();
+
+
+
+/* =====================================================
+   PREGUNTA FINAL
+===================================================== */
+
+const questionButton =
+  document.getElementById(
+    "questionButton"
+  );
+
+
+const answerArea =
+  document.getElementById(
+    "answerArea"
+  );
+
+
+questionButton.addEventListener(
+  "click",
+  () => {
+
+    answerArea.classList.toggle(
+      "open"
+    );
+
+
+    const isOpen =
+      answerArea.classList.contains(
+        "open"
+      );
+
+
+    if (isOpen) {
+
+      questionButton.querySelector(
+        "span"
+      ).textContent = "♡";
+
+
+      questionButton.querySelector(
+        "small"
+      ).textContent =
+        "Hay algo que quiero preguntarte";
+
+    } else {
+
+      questionButton.querySelector(
+        "span"
+      ).textContent = "Abrir";
+
+
+      questionButton.querySelector(
+        "small"
+      ).textContent =
+        "Tengo algo que decirte";
+
+    }
+
+  }
+);
+
+
+
+/* =====================================================
+   MÚSICA
+===================================================== */
+
+const bgMusic =
+  document.getElementById(
+    "bgMusic"
+  );
+
+
+let musicStarted = false;
+
+
+document.addEventListener(
+  "click",
+  () => {
+
+    if (musicStarted) {
+      return;
+    }
+
+
+    bgMusic.volume = 0.30;
+
+
+    bgMusic
+      .play()
+      .then(() => {
+
+        musicStarted = true;
+
+      })
+      .catch(() => {
+
+        /*
+          Algunos navegadores bloquean
+          la reproducción automática.
+        */
+
+      });
+
+  },
+  { once: true }
+);
