@@ -11,6 +11,7 @@ const carouselDots =
 const slides =
   document.querySelectorAll(".slide");
 
+
 let currentSlide = 0;
 
 let autoPlay;
@@ -18,7 +19,7 @@ let autoPlay;
 
 
 /* =====================================================
-   CREAR LOS PUNTOS
+   CREAR INDICADORES
 ===================================================== */
 
 slides.forEach((_, index) => {
@@ -61,7 +62,7 @@ const dots =
 
 
 /* =====================================================
-   CAMBIAR FOTO
+   CAMBIAR FOTOGRAFÍA
 ===================================================== */
 
 function goToSlide(index) {
@@ -89,7 +90,7 @@ function goToSlide(index) {
 
 
 /* =====================================================
-   SIGUIENTE FOTO
+   SIGUIENTE
 ===================================================== */
 
 function nextSlide() {
@@ -113,7 +114,7 @@ function nextSlide() {
 
 
 /* =====================================================
-   REPRODUCCIÓN AUTOMÁTICA
+   AUTOPLAY
 ===================================================== */
 
 function startAutoPlay() {
@@ -138,7 +139,7 @@ function restartAutoPlay() {
 
 
 /* =====================================================
-   INICIAR CARRUSEL
+   INICIAR
 ===================================================== */
 
 goToSlide(0);
@@ -148,7 +149,7 @@ startAutoPlay();
 
 
 /* =====================================================
-   PREGUNTA FINAL
+   PREGUNTA
 ===================================================== */
 
 const questionButton =
@@ -244,7 +245,7 @@ document.addEventListener(
       .catch(() => {
 
         /*
-          Algunos navegadores bloquean
+          El navegador puede bloquear
           la reproducción automática.
         */
 
